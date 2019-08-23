@@ -1,9 +1,11 @@
 server:
-  port: 9000
+  port: 9005
   servlet:
     context-path: /doc-user-api
 
 spring:
+  application:
+    name: doc-user
   profiles:
     active: dev
   jpa:
@@ -11,4 +13,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/doc-eureka-server/eureka/
