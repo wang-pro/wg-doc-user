@@ -1,5 +1,6 @@
 package com.wg.doc.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "t_user_info")
 @Data
 @ApiModel
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class UserInfo {
 
     @Id
