@@ -1,0 +1,13 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /doc-user-api
+
+spring:
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
