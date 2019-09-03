@@ -29,7 +29,7 @@ public class UserInfoController {
     private UserInfoService userInfoService;
 
     @GetMapping("/{id}")
-    @ApiOperation(value="停车场数据每小时汇报", notes="停车场数据每小时汇报")
+    @ApiOperation(value="用户详情", notes="用户详情")
     @ApiImplicitParam(paramType = "path", dataType = "Long", name = "id", value = "id", required = true)
     public ResultVo<UserInfo> getCustomerByAge(@PathVariable long id) {
         ResultVo<UserInfo> resultVo = new ResultVo<>();
