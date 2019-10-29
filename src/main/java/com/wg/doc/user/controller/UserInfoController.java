@@ -1,13 +1,11 @@
 package com.wg.doc.user.controller;
 
 
-import com.wg.doc.base.domain.ResultVo;
-import com.wg.doc.base.enums.StatusCode;
+import com.wg.doc.base.result.Result;
 import com.wg.doc.user.entity.UserInfo;
 import com.wg.doc.user.service.UserInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,12 +29,8 @@ public class UserInfoController {
     @GetMapping("/{id}")
     @ApiOperation(value="用户详情", notes="用户详情")
     @ApiImplicitParam(paramType = "path", dataType = "Long", name = "id", value = "id", required = true)
-    public ResultVo<UserInfo> getCustomerByAge(@PathVariable long id) {
-        ResultVo<UserInfo> resultVo = new ResultVo<>();
-        resultVo.setData(userInfoService.getUser(id));
-        resultVo.setCode(StatusCode.SUCCESS.getCode());
-        resultVo.setMsg(StatusCode.SUCCESS.getMessage());
-        return resultVo;
+    public Result<UserInfo> getCustomerByAge(@PathVariable long id) {
+        return Result.success(userInfoService.getUser(id)) ;
     }
 
 }
